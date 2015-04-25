@@ -23,7 +23,24 @@ public class CreateStudentDB {
 								 "(6, 'kim', 20, 2001)",
 								 "(7, 'art', 30, 2004)",
 								 "(8, 'pat', 20, 2001)",
-								 "(9, 'lee', 10, 2004)"};
+								 "(9, 'lee', 10, 2004)",
+								 "(10, 'dan', 50, 2003)",
+								 "(11, 'tan', 10, 2005)",
+								 "(12, 'ben', 40, 2004)",
+								 "(13, 'ley', 20, 2001)",
+								 "(14, 'jen', 50, 2003)",
+								 "(15, 'tom', 30, 2005)",
+								 "(16, 'liz', 10, 2004)",
+								 "(17, 'lea', 40, 2001)",
+								 "(18, 'lin', 10, 2004)",
+								 "(19, 'ken', 10, 2003)",
+								 "(20, 'neh', 40, 2001)",
+								 "(21, 'stu', 20, 2005)",
+								 "(22, 'cru', 50, 2003)",
+								 "(23, 'nat', 30, 2004)",
+								 "(24, 'mat', 10, 2004)",
+								 "(25, 'ann', 50, 2001)"};
+			
 			for (int i=0; i<studvals.length; i++)
 				stmt.executeUpdate(s + studvals[i]);
 			System.out.println("STUDENT records inserted.");
@@ -35,7 +52,9 @@ public class CreateStudentDB {
 			s = "insert into DEPT(DId, DName) values ";
 			String[] deptvals = {"(10, 'compsci')",
 								 "(20, 'math')",
-								 "(30, 'drama')"};
+								 "(30, 'drama')",
+								 "(40, 'ece')",
+								 "(50, 'aero')"};
 			for (int i=0; i<deptvals.length; i++)
 				stmt.executeUpdate(s + deptvals[i]);
 			System.out.println("DEPT records inserted.");
@@ -50,7 +69,11 @@ public class CreateStudentDB {
 								   "(32, 'calculus', 20)",
 								   "(42, 'algebra', 20)",
 								   "(52, 'acting', 30)",
-								   "(62, 'elocution', 30)"};
+								   "(62, 'elocution', 30)",
+								   "(72, 'circuits', 40)",
+								   "(82, 'aeroplanes', 50)",
+								   "(92, 'signals', 40)",
+								   "(102, 'dynamics', 50)"};
 			for (int i=0; i<coursevals.length; i++)
 				stmt.executeUpdate(s + coursevals[i]);
 			System.out.println("COURSE records inserted.");
@@ -64,7 +87,13 @@ public class CreateStudentDB {
 								 "(23, 12, 'turing', 2005)",
 								 "(33, 32, 'newton', 2000)",
 								 "(43, 32, 'einstein', 2001)",
-								 "(53, 62, 'brando', 2001)"};
+								 "(53, 62, 'brando', 2001)",
+								 "(63, 62, 'brando', 2003)",
+								 "(73, 72, 'tesla', 2004)",
+								 "(83, 82, 'wright', 2005)",
+								 "(93, 92, 'edison', 2004)",
+								 "(103, 102, 'wright', 2003)",
+								 "(113, 102, 'wright', 2001)"};
 			for (int i=0; i<sectvals.length; i++)
 				stmt.executeUpdate(s + sectvals[i]);
 			System.out.println("SECTION records inserted.");
