@@ -22,11 +22,11 @@ public class Profiler {
 			long avgTime = 0;
 
 			// Step 2: Run the experiments multiple times
-			avgTime = experiment(conn, 5);
+			avgTime = experiment(conn, 3);
 			
 			// Step 3: Average time taken
 			System.out.println("\nAverage time to execute 1000 " + 
-					" random select statements : " + avgTime + " ms");
+					"random select statements : " + avgTime + " ms");
 
 		}
 		catch(Exception e) {
@@ -72,27 +72,30 @@ public class Profiler {
 		System.out.println("Query 4 - " + qry4);
 		System.out.println("Query 5 - " + qry5);
 		
-		// start timer
-		long start = System.currentTimeMillis();
+		// total time
+		long totalTime = 0;
 					
 		// run the experiment multiple times for better accuracy
 		for(int i = 0; i < times; i++) {
 			// execute the 5 queries, 200 times. A total of 1000 queries
 			for(int j = 0; j < 200; j++) {
+				// subtract the start time
+				totalTime -= System.currentTimeMillis();
+				
 				stmt.executeQuery(qry1);
 				//try to randomize the query by randomly generating the year
 				stmt.executeQuery(qry2 + Integer.toString(2001 + ((int)(Math.random() * 100) % 5)));
 				stmt.executeQuery(qry3);
 				stmt.executeQuery(qry4);
-				stmt.executeQuery(qry5);		
+				stmt.executeQuery(qry5);
+				
+				// add the end time
+				totalTime += System.currentTimeMillis();
 			}
 		}
-		
-		// end timer
-		long end = System.currentTimeMillis();
 
 		// return the average time for the experiment
-		return((end - start) / times);
+		return(totalTime / times);
 	}
 
 }
